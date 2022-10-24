@@ -99,10 +99,10 @@ Business requirements
     - log in time
     - ip address
     - charts:
-      - daily, weekly, monthly, quaterly, yearly split
+      - daily, weekly, monthly, quarterly, yearly split
       - what type of payments does it support and which category do we put it in
-      - piechart for income and outcame by family members
-      - piechart for expense categories
+      - pieChart for income and outcome by family members
+      - pieChart for expense categories
 - OK - log in
   - username
   - password
