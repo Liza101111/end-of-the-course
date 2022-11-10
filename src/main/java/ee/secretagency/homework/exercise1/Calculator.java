@@ -1,4 +1,4 @@
-package ee.secretagency.endofthegame.homework.exercise1;
+package ee.secretagency.homework.exercise1;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -15,12 +15,12 @@ public class Calculator {
         return a + b;
     }
 
-   /* @GetMapping("/div/{a}/{b}")
+    @GetMapping("/div/{a}/{b}")
     public  <T> Serializable div(@PathVariable float a, @PathVariable float b){
         if(b==0){
             return "Can't divide by zero";
         } else {
             return a/b;
         }
-    }*/
+    }
 }
