@@ -46,5 +46,11 @@ public class IncomesService {
         return income;
     }
 
+    public Income  readIncomeByIdBetterWay(Long id){
+        log.info("reading income with id: [{}]- better way", id);
+        var maybeIncome = incomesRepository.findById(id);
+        return maybeIncome.orElse(null);
+    }
+
 
 }

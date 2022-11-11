@@ -33,7 +33,8 @@ public class IncomesController {
     @GetMapping("/incomes/{id}")
     public ResponseEntity<Income> getIncomeById(@PathVariable("id") Long id) {
         log.info("trying to get income with id: [{}]", id);
-        Income income = incomesService.readIncomeById(id);
+        //Income income = incomesService.readIncomeById(id);
+        Income income = incomesService.readIncomeByIdBetterWay(id);
         boolean exists = income != null;
 
         if (exists) {
