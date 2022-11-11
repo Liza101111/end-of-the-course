@@ -1,6 +1,7 @@
 package ee.secretagency.endofthegame.controller.rest;
 
 import ee.secretagency.endofthegame.entity.Income;
+import ee.secretagency.endofthegame.exception.IncomeNotFoundException;
 import ee.secretagency.endofthegame.service.IncomesService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +15,11 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequestMapping("/api")
-public class IncomesController {
+public class IncomeController {
 
     private final IncomesService incomesService;
 
-    public IncomesController(IncomesService service) {
+    public IncomeController(IncomesService service) {
         this.incomesService = service;
     }
 
@@ -31,17 +32,11 @@ public class IncomesController {
     }
 
     @GetMapping("/incomes/{id}")
-    public ResponseEntity<Income> getIncomeById(@PathVariable("id") Long id) {
+    public Income getIncomeById(@PathVariable("id") Long id) {
         log.info("trying to get income with id: [{}]", id);
-        //Income income = incomesService.readIncomeById(id);
-        Income income = incomesService.readIncomeByIdBetterWay(id);
-        boolean exists = income != null;
 
-        if (exists) {
-            return ResponseEntity.ok(income);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return incomesService.readIncomeByIdBetterWay(id);
+
     }
 
 }
