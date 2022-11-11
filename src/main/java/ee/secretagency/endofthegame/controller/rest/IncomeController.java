@@ -1,11 +1,11 @@
 package ee.secretagency.endofthegame.controller.rest;
 
 import ee.secretagency.endofthegame.entity.Income;
-import ee.secretagency.endofthegame.exception.IncomeNotFoundException;
+
 import ee.secretagency.endofthegame.service.IncomesService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,7 +41,7 @@ public class IncomeController {
     @DeleteMapping("/incomes/{id}")
     public void deleteIncomeById(@PathVariable Long id){
         log.info("trying to delete income with id: [{}]", id);
-        incomesService.deleteIncomeWithId(id);
+        incomesService.deleteIncomeWithIdBetter(id);
     }
 
 }
