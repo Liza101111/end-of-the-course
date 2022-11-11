@@ -4,6 +4,7 @@ import ee.secretagency.endofthegame.entity.Income;
 import ee.secretagency.endofthegame.exception.IncomeNotFoundException;
 import ee.secretagency.endofthegame.repository.IncomesRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -61,4 +62,13 @@ public class IncomesService {
     }
 
 
+    public void deleteIncomeWithId(Long id) {
+        log.info("deleting income with id: [{}]", id);
+        try{
+            incomesRepository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
+            log.warn("Try to delete non existent income", e);
+            throw new IncomeNotFoundException("No existing income", e);
+        }
+    }
 }

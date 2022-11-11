@@ -26,7 +26,7 @@ REST - hierarchical resources
     - url: /incomes/{id}
     - GET http method
     - return: 
-      - existing +income: single item + 200 Http return code
+      - existing income: single item + 200 Http return code
       - nonexistent income: error object + 404 Http return code
   - Create:
     - url: /incomes
@@ -34,6 +34,9 @@ REST - hierarchical resources
   - Delete:
     - url: /incomes/{id}
     - DELETE http method
+    - return:
+     - existing income: empty body + 204 Http return code
+     - nonexistent income: error object + 404 Http return code
   - Update:
     - url: /incomes/{id}
     - PUT http method - full update - replace
