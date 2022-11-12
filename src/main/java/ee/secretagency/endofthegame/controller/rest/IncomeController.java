@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class IncomeController {
     }
 
     @PostMapping("/incomes")
-    public ResponseEntity<Income> createNewIncome(@RequestBody Income income){
+    public ResponseEntity<Income> createNewIncome(@Valid @RequestBody Income income){
         log.info("creating new income: [{}]", income);
 
         Income newIncome =incomesService.createNewIncome(income);
@@ -56,4 +57,12 @@ public class IncomeController {
 
     }
 
+/*    public ResponseEntity<Void> createNewIncome(@RequestBody Income income){
+        log.info("creating new income: [{}]", income);
+
+        Income newIncome =incomesService.createNewIncome(income);
+        return ResponseEntity.created(URI.create("/incomes/" + newIncome.getId()))
+                .build();
+
+    }*/
 }
