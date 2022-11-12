@@ -6,8 +6,10 @@ import ee.secretagency.endofthegame.service.IncomesService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -45,10 +47,13 @@ public class IncomeController {
     }
 
     @PostMapping("/incomes")
-    public void createNewIncome(@RequestBody Income income){
+    public ResponseEntity<Income> createNewIncome(@RequestBody Income income){
         log.info("creating new income: [{}]", income);
 
-        incomesService.createNewIncome(income);
+        Income newIncome =incomesService.createNewIncome(income);
+        return ResponseEntity.created(URI.create("/incomes/" + newIncome.getId()))
+                .body(newIncome);
+
     }
 
 }

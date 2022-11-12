@@ -84,12 +84,15 @@ public class IncomesService {
         }
     }
     //TODO: fix id from the income
-    public void createNewIncome(Income income) {
+    public Income createNewIncome(Income income) {
         log.info("object before saving: [{}]", income);
         if(income.getTimestamp() == null){
             income.setTimestamp(ZonedDateTime.now());
         }
         Income saved = incomesRepository.save(income);
         log.info("object after saving: [{}]", saved);
+        log.info("input income after saving: [{}]", income);
+
+        return saved;
     }
 }
