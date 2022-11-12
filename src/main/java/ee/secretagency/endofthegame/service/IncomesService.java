@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.function.Supplier;
 
@@ -81,5 +82,14 @@ public class IncomesService {
         } else {
             throw new IncomeNotFoundException("No existing income with id: [%d]".formatted(id));
         }
+    }
+    //TODO: fix id from the income
+    public void createNewIncome(Income income) {
+        log.info("object before saving: [{}]", income);
+        if(income.getTimestamp() == null){
+            income.setTimestamp(ZonedDateTime.now());
+        }
+        Income saved = incomesRepository.save(income);
+        log.info("object after saving: [{}]", saved);
     }
 }

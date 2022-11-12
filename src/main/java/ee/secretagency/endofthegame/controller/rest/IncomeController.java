@@ -47,6 +47,8 @@ public class IncomeController {
     @PostMapping("/incomes")
     public void createNewIncome(@RequestBody Income income){
         log.info("creating new income: [{}]", income);
+
+        incomesService.createNewIncome(income);
     }
 
 }
