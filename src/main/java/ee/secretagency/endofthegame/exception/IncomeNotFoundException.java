@@ -1,10 +1,10 @@
 package ee.secretagency.endofthegame.exception;
 
 
-//TODO: why Runtime???
 public class IncomeNotFoundException extends RuntimeException {
     public IncomeNotFoundException() {
     }
+
 
     public IncomeNotFoundException(String message) {
         super(message);
