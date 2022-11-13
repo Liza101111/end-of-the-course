@@ -16,6 +16,8 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequestMapping("/api")
+//TODO: explain cors
+@CrossOrigin("*")
 public class IncomeController {
 
     private final IncomesService incomesService;
