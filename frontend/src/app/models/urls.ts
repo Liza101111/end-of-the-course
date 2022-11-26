@@ -1,5 +1,6 @@
 const server = 'http://localhost:8080'
 export const allIncomesUrl = `${server}/api/incomes`
+export const newIncomesUrl = `${server}/api/incomes`
 
 export const homeUrl = ''
 export const incomeListUrl = 'income-list'
