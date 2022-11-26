@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {expenseListUrl, homeUrl, incomeListUrl} from "../../models/urls";
+import {createNewIncomeUrl, expenseListUrl, homeUrl, incomeListUrl} from "../../models/urls";
 
 
 @Component({
@@ -12,6 +12,7 @@ export class NavigationBarComponent implements OnInit {
   home = homeUrl
   incomes = incomeListUrl
   expenses = expenseListUrl
+  newIncome = createNewIncomeUrl
 
 
 
